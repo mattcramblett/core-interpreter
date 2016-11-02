@@ -1,5 +1,4 @@
 package coreinterpreter;
-import coreinterpreter.TokenizerSingleton;
 
 public class CoreInterpreterBootstrap {
 

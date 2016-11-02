@@ -2,7 +2,7 @@ package coreinterpreter;
 
 public class Declaration {
 	//private members
-	//private idList il;
+	private IdList il;
 	
 	//constructor
 	public Declaration(){
@@ -11,15 +11,16 @@ public class Declaration {
 	
 	//public methods
 	public void parse(){
-		//TODO check first to see if the id list is actually there, and if it is, parse it.
 		TokenizerSingleton.checkAndSkip(4, "int");
+		il = new IdList();
+		il.parse();
+		TokenizerSingleton.checkAndSkip(12, ";");
 	}
 	
 	public void print(int numSpaces){
-		
-	}
-	
-	public void execute(){
-		
+		PrintHelp.printSpaces(numSpaces);
+		System.out.print("int ");
+		il.print();
+		System.out.print(";\n");
 	}
 }

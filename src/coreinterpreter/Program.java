@@ -13,8 +13,13 @@ public class Program {
     //public methods
  	public void parse(){
  		TokenizerSingleton.checkAndSkip(1, "program");
- 		ds = new DeclarationSequence();
- 		ds.parse();
+ 		
+ 		//checking for int token to parse declaration sequence:
+ 		if(TokenizerSingleton.Instance().getToken() == 4){
+ 			ds = new DeclarationSequence();
+ 	 		ds.parse();
+ 		}
+ 		
  		TokenizerSingleton.checkAndSkip(2, "begin");
  		ss = new StatementSequence();
  		ss.parse();
@@ -23,13 +28,12 @@ public class Program {
  	public void print(){
  		System.out.println("program");
  		ds.print(PrintHelp.INDENT);
- 		System.out.println("begin");
+ 		System.out.print("begin\n");
  		ss.print(PrintHelp.INDENT);
- 		System.out.println("end");
+ 		System.out.print("\nend");
  	}
  	
  	public void execute(){
- 		ds.execute();
  		ss.execute();
  	}
 
