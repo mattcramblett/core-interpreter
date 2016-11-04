@@ -31,17 +31,20 @@ public class CoreInterpreterBootstrap {
 		//set up file name for the data:
 		try {
 			reader = new Scanner(new File(args[1]));
+			
+			//create a new program, then parse, print, and execute:
+			Program p = new Program();
+			p.parse();
+			p.print();
+			System.out.println("--PROGRAM OUTPUT:--");
+			p.execute();
+			
 		} catch (FileNotFoundException e) {
 			System.out.println("ERROR reading data file " + args[1]);
 			e.printStackTrace();
 		} finally{
 			reader.close();
 		}
-		//create a new program, then parse, print, and execute:
-		Program p = new Program();
-		p.parse();
-		p.print();
-		p.execute();
 	}
 
 }

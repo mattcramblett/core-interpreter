@@ -29,7 +29,7 @@ public class Loop {
 		System.out.print(" loop\n");
 		ss.print(numSpaces + PrintHelp.INDENT);
 		PrintHelp.printSpaces(numSpaces);
-		System.out.println("end;\n");
+		System.out.println("end;");
 	}
 	
 	public void execute(){

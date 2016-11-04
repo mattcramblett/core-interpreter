@@ -24,7 +24,7 @@ public class Factor {
 	public void print(){
 		op.print();
 		if(f != null){
-			System.out.print("*");
+			System.out.print(" * ");
 			f.print();
 		}
 	}

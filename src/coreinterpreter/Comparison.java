@@ -20,6 +20,7 @@ public class Comparison {
 	public void parse(){
 		TokenizerSingleton.checkAndSkip(20, "("); //always begins with (
 		o1 = new Operand();
+		o1.parse();
 		operator = new Integer(TokenizerSingleton.Instance().getToken());
 		//operator error: (no pun intended)
 		if(operator < 25 || operator > 30){
@@ -34,19 +35,22 @@ public class Comparison {
 	public void print(){
 		System.out.print("(");
 		o1.print();
-		switch(operator.intValue()){
-			case 25:
-				System.out.print(" != ");
-			case 26:
-				System.out.print(" == ");
-			case 27:
-				System.out.print(" < ");
-			case 28:
-				System.out.print(" > ");
-			case 29:
-				System.out.print(" <= ");
-			case 30:
-				System.out.print(" >= ");
+		int op = operator.intValue();
+		if(op == 25){
+			System.out.print(" != ");
+		}else if(op == 26){
+			System.out.print(" == ");
+		}else if(op == 27){
+			System.out.print(" < ");
+		}else if(op == 28){
+			System.out.print(" > ");
+		}else if(op == 29){
+			System.out.print(" <= ");
+		}else if(op == 30){
+			System.out.print(" >= ");
+		}else{
+			System.out.println("ERROR when printing this operator.");
+			System.exit(1);
 		}
 		o2.print();
 		System.out.print(")");
@@ -54,19 +58,22 @@ public class Comparison {
 	
 	public boolean evalComparison(){
 		boolean result = false;
-		switch(operator.intValue()){
-		case 25:
+		int op = operator.intValue();
+		if(op == 25){
 			result = o1.evalOperand() != o2.evalOperand();
-		case 26:
+		}else if(op == 26){
 			result = o1.evalOperand() == o2.evalOperand();
-		case 27:
+		}else if(op == 27){
 			result = o1.evalOperand() < o2.evalOperand();
-		case 28:
+		}else if(op == 28){
 			result = o1.evalOperand() > o2.evalOperand();
-		case 29:
+		}else if(op == 29){
 			result = o1.evalOperand() <= o2.evalOperand();
-		case 30:
+		}else if(op == 30){
 			result = o1.evalOperand() >= o2.evalOperand();
+		}else{
+			System.out.println("ERROR when executing comparison with this operator.");
+			System.exit(1);
 		}
 		return result;
 	}

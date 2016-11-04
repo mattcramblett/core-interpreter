@@ -99,9 +99,9 @@ public class IdList {
 	}
 	
 	public void writeIdList(){
-		System.out.print(Id.getIdValue(id.name));
-		System.out.print(", ");
+		System.out.print(Id.getIdValue(id.name) + "\n");
 		if(il != null){
+			System.out.print(", ");
 			il.writeIdList();
 		}
 	}

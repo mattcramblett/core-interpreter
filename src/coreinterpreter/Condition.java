@@ -56,13 +56,13 @@ public class Condition {
 	public void print(){
 		if(compState == null && isAnd == null && comp != null){ //means that this <cond> is a lone <comp> 
 			comp.print();
-		}else if(compState == false && isAnd == null){ //means that this is a negated condition
+		}else if(isAnd == null && compState == false){ //means that this is a negated condition
 			System.out.print("!");
 			c1.print();
 		}else if(isAnd == true){// &&
 			System.out.print("[");
 			c1.print();
-			System.out.println(" && ");
+			System.out.print(" && ");
 			c2.print();
 			System.out.print("]");
 		}else if(isAnd == false){ // ||
@@ -81,7 +81,7 @@ public class Condition {
 		boolean result = false;
 		if(compState == null && isAnd == null && comp != null){ //means that this <cond> is a lone <comp> 
 			result = comp.evalComparison();
-		}else if(compState == false && isAnd == null){ //means that this is a negated condition
+		}else if(isAnd == null && compState == false){ //means that this is a negated condition
 			result = !c1.evalCondition();
 		}else if(isAnd == true){// &&
 			result = c1.evalCondition() && c2.evalCondition();

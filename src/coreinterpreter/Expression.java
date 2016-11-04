@@ -37,35 +37,33 @@ public class Expression {
 	}
 	
 	public void print(){
-		switch(this.kind){
-			case 1:
-				f.print();
-			case 2:
-				f.print();
-				System.out.print("+");
-				exp.print();
-			case 3:
-				f.print();
-				System.out.print("-");
-				exp.print();
-			default:
-				System.out.println("ERROR when printing this expression");
-				System.exit(1);
+		if(kind == 1){
+			f.print();
+		}else if(kind == 2){
+			f.print();
+			System.out.print(" + ");
+			exp.print();
+		}else if(kind == 3){
+			f.print();
+			System.out.print(" - ");
+			exp.print();
+		}else{
+			System.out.println("ERROR when printing this expression");
+			System.exit(1);
 		}
 	}
 	
 	public int evalExpression(){
 		int result = 0;
-		switch(this.kind){
-			case 1:
-				result = f.evalFactor();
-			case 2:
-				result = f.evalFactor() + exp.evalExpression();
-			case 3:
-				result = f.evalFactor() - exp.evalExpression();
-			default:
-				System.out.println("ERROR when evaluating this expression");
-				System.exit(1);
+		if(kind == 1){
+			result = f.evalFactor();
+		}else if(kind == 2){
+			result = f.evalFactor() + exp.evalExpression();
+		}else if(kind == 3){
+			result = f.evalFactor() - exp.evalExpression();
+		}else{
+			System.out.println("ERROR when evaluating this expression");
+			System.exit(1);
 		}
 		return result;
 	}

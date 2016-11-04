@@ -18,25 +18,24 @@ public class Statement {
 	public void parse(){
 		//current token to decide which parse to call:
 		int token = TokenizerSingleton.Instance().getToken();
-		switch(token){
-			case 32:
-				a = new Assign();
-				a.parse();
-			case 5:
-				i = new If();
-				i.parse();
-			case 8:
-				l = new Loop();
-				l.parse();
-			case 10:
-				in = new In();
-				in.parse();
-			case 11:
-				out = new Out();
-				out.parse();
-			default:
-				System.out.println("ERROR - not a valid statement");
-				System.exit(1);
+		if(token == 32){
+			a = new Assign();
+			a.parse();
+		}else if(token == 5){
+			i = new If();
+			i.parse();
+		}else if(token == 8){
+			l = new Loop();
+			l.parse();
+		}else if(token == 10){
+			in = new In();
+			in.parse();
+		}else if(token == 11){
+			out = new Out();
+			out.parse();
+		}else{
+			System.out.println("ERROR - not a valid statement to parse.");
+			System.exit(1);
 		}
 	}
 	

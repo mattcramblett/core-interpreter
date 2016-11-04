@@ -42,7 +42,7 @@ public class Program {
  		if(ss != null){
  			ss.print(0);
  		}
- 		System.out.print("\nend");
+ 		System.out.print("end\n\n");
  	}
  	
  	public void execute(){
