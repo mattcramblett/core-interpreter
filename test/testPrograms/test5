@@ -1,0 +1,23 @@
+program 
+    int W, X, Y, Z;
+  begin
+  
+    read W, X, Y, Z;
+    
+	if(W > X) then
+		write W;
+	end;
+	
+	if(X > Y) then
+		write Y;
+	end;
+	
+	if(Y > Z) then
+		write Y;
+	end;
+	
+	if(Z == 0) then
+		write Z;
+	end;
+	
+  end

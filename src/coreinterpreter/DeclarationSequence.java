@@ -23,7 +23,7 @@ public class DeclarationSequence {
 	}
 	
 	public void print(int numSpaces){
-		d.print(numSpaces);
+		d.print(numSpaces + PrintHelp.INDENT);
 		if(ds != null){
 			ds.print(numSpaces);
 		}

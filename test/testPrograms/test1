@@ -1,0 +1,7 @@
+program 
+    int X, Y;
+  begin
+    read X;
+    Y = X + 10;
+    write Y;
+  end

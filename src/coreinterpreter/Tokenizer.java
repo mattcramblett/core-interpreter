@@ -177,21 +177,19 @@ public class Tokenizer{
 		return inputList.get(index);
 	}
 
-
+	/*
 	public static void main(String[] args){
 			try {
 				Tokenizer t = new Tokenizer(args[0]); //name of input file is command line arg
 
 				while(t.getToken() != 33){ //print tokens until EOF is reached
 					System.out.print(t.getToken()); //print token's corresponding value
-					/*
-					**Testing some methods:
+					//**Testing some methods:
 					if(t.getToken() == 31){
 						System.out.print(" INT = " + t.intVal()); //show int value
 					}else if(t.getToken() == 32){
 						System.out.print(" ID = " + t.idName()); //show id name
 					}
-					*/
 					System.out.println();//new line
 					t.skipToken(); //skip to next next token
 				}
@@ -202,5 +200,5 @@ public class Tokenizer{
         System.out.println("Could not find file " + args[0]);
     	}
 	}	
-
+	*/
 }

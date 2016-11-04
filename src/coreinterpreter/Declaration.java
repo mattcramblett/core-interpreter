@@ -12,9 +12,14 @@ public class Declaration {
 	//public methods
 	public void parse(){
 		TokenizerSingleton.checkAndSkip(4, "int");
-		il = new IdList();
-		il.parse();
-		TokenizerSingleton.checkAndSkip(12, ";");
+		if(TokenizerSingleton.Instance().getToken() != 32){
+			System.out.println("ERROR - invalid identifier name declared.");
+			System.exit(1);
+		}else{
+			il = new IdList();
+			il.parseDeclIdList();
+			TokenizerSingleton.checkAndSkip(12, ";");
+		}
 	}
 	
 	public void print(int numSpaces){

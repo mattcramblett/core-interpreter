@@ -21,20 +21,34 @@ public class Program {
  		}
  		
  		TokenizerSingleton.checkAndSkip(2, "begin");
- 		ss = new StatementSequence();
- 		ss.parse();
+ 		
+ 		//check for EOF, just in case the program is empty:
+ 		if(TokenizerSingleton.Instance().getToken() != 33 
+ 				&& TokenizerSingleton.Instance().getToken() != 3){
+ 			ss = new StatementSequence();
+ 	 		ss.parse();
+ 		}
+ 		
+ 		//token 'end'
+ 		TokenizerSingleton.checkAndSkip(3, "end");
  	}
  	
  	public void print(){
  		System.out.println("program");
- 		ds.print(PrintHelp.INDENT);
+ 		if(ds != null){
+ 			ds.print(0);
+ 		}
  		System.out.print("begin\n");
- 		ss.print(PrintHelp.INDENT);
+ 		if(ss != null){
+ 			ss.print(0);
+ 		}
  		System.out.print("\nend");
  	}
  	
  	public void execute(){
- 		ss.execute();
+ 		if(ss != null){
+ 			ss.execute();
+ 		}
  	}
 
 }

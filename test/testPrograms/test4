@@ -1,0 +1,9 @@
+program 
+    int X, Y, Z, A;
+  begin
+    X = 2000;
+    Y = 6;
+    Z = 10;
+    A = X + Y + Z;
+    write A;
+  end
