@@ -2,7 +2,6 @@ package coreinterpreter;
 
 /**
  * Helper class for pretty printing programs
- *
  */
 public class PrintHelp {
 	

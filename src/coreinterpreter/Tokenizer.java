@@ -3,7 +3,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
+/**
+ * The Tokenizer class splits up the given Core program into its 
+ * various tokens using a greedy algorithm.
+ * @author Matthew Cramblett
+ *
+ */
 public class Tokenizer{
 	private ArrayList<String> inputList; //program from file
 	private int index; //index of where tokenizer is
@@ -11,10 +16,14 @@ public class Tokenizer{
 	private HashMap<String, Integer> symbols; //special symbols and their token values
 	private ArrayList<Character> specialChars; //special characters to tokenize
 
-	/*
-	** TOKENIZER CONSTRUCTOR
-	** fileName = name of file to a valid CORE program 
-	*/
+	/**
+	 * Constructor for the Tokenizer object.
+	 * NOTE: The TokenizerSingleton class is used for the Core interpreter 
+	 * to ensure one instance of the Tokenizer.
+	 * 
+	 * @param fileName name of file to a valid CORE program 
+	 * @throws IOException
+	 */
 	public Tokenizer(String fileName) throws IOException {
 		//Initialize arrays of keywords and special symbols
 		index = 0;
@@ -115,11 +124,12 @@ public class Tokenizer{
 			return result;		
 		}
 
-
-		/*helper method for getToken, splits up chunks without whitespace
-		**input parameter is a list of strings that have been separated just by whitespace
-		*/
-		
+		/**
+		 * helper method for getToken, splits up chunks without whitespace
+		 * input parameter is a list of strings that have been separated just by whitespace
+		 * @param list the list to split - must be already split by whitespace
+		 * @return the normalized list of all tokens
+		 */
 		private ArrayList<String> splitUp(ArrayList<String> list){
 			int pos = 0;
 			ArrayList<String> result = new ArrayList<String>();
@@ -136,12 +146,12 @@ public class Tokenizer{
 		}
 
 
-	/*
-	** PUBLIC TOKENIZER METHODS:
-	**
-	*/
+		//public methods
 
-	//returns (info about) current  token; Repeated calls to getToken() return same  token.
+	/**
+	 * Returns (info about) current  token. Repeated calls to getToken() return same token.
+	 * @return the current token number
+	 */
 	public int getToken() {
 		int result = 0; //0 default value, will trigger error
 		if(index >= inputList.size()){
@@ -162,17 +172,28 @@ public class Tokenizer{
 		return result;
 	}
 
-	//skips current token; next token becomes current token; so next call to getToken() will return new token.
+	/**
+	 * skips current token; next token becomes current token; 
+	 * so next call to getToken() will return new token.
+	 */
 	public void skipToken() {
 		index++;
 	}
 
-	//returns the value of the current (integer) token	(what if current token is not  an integer? -- error!)
+	/**
+	 * returns the value of the current (integer) token
+	 * @requires getToken() == 31
+	 * @return the integer value of the current integer token
+	 */
 	public int intVal() {
 		return Integer.parseInt(inputList.get(index));
 	}
 
-	//returns the name (string) of the current (id) token.	(what if current token is not an id? -- error!)
+	/**
+	 * returns the name (string) of the current (id) token.
+	 * @requires getToken() == 32
+	 * @return the name of the current Identifier token
+	 */
 	public String idName() {
 		return inputList.get(index);
 	}

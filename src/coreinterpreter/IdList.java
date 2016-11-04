@@ -1,5 +1,9 @@
 package coreinterpreter;
-
+/**
+ * The IdList class is a recursively defined grouping of one or more Ids.
+ * @author Matthew Cramblett
+ *
+ */
 public class IdList {
 	//private members
 	private Id id;
@@ -13,7 +17,7 @@ public class IdList {
 	//public methods
 	
 	/**
-	 * this method parses an idList from a declaration statement
+	 * Parses an idList from a declaration statement
 	 */
 	public void parseDeclIdList(){
 		//check that there's an identifier:
@@ -34,7 +38,7 @@ public class IdList {
 	}
 	
 	/**
-	 * this method parses an idList from a read statement
+	 * Parses an idList from a read statement
 	 */
 	public void parseInList(){
 		//check that there's an identifier:
@@ -78,6 +82,9 @@ public class IdList {
 		}
 	}
 	
+	/**
+	 * Prints an IdList object.
+	 */
 	public void print(){
 		id.print(id.name);
 		if(il != null){
@@ -86,6 +93,11 @@ public class IdList {
 		}
 	}
 	
+	/**
+	 * Reads in an IdList upon execution from the file scanner
+	 * set up by the CoreInterpreterBootstrap class. The Id values 
+	 * are updated in {@code IdMap}
+	 */
 	public void readIdList(){
 		if(CoreInterpreterBootstrap.reader.hasNextInt()){
 			Id.setIdValue(id.name, CoreInterpreterBootstrap.reader.nextInt());
@@ -98,8 +110,12 @@ public class IdList {
 		}
 	}
 	
+	/**
+	 * Writes an IdList upon execution. The Ids' values are looked up in
+	 * {@code IdMap}
+	 */
 	public void writeIdList(){
-		System.out.print(Id.getIdValue(id.name) + "\n");
+		System.out.print(id.name + " = " + Id.getIdValue(id.name) + "\n");
 		if(il != null){
 			System.out.print(", ");
 			il.writeIdList();

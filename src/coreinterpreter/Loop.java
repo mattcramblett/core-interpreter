@@ -1,5 +1,9 @@
 package coreinterpreter;
-
+/**
+ * The Loop class is the representation of a while loop in Core.
+ * @author Matthew Cramblett
+ *
+ */
 public class Loop {
 	//private members
 	private Condition cond;
@@ -11,6 +15,9 @@ public class Loop {
 	}
 	
 	//public methods
+	/**
+	 * Parses a Loop object.
+	 */
 	public void parse(){
 		cond = new Condition();
 		ss = new StatementSequence();
@@ -22,6 +29,10 @@ public class Loop {
 		TokenizerSingleton.checkAndSkip(12, ";");
 	}
 	
+	/**
+	 * Prints a Loop object.
+	 * @param numSpaces the amount of indent
+	 */
 	public void print(int numSpaces){
 		PrintHelp.printSpaces(numSpaces);
 		System.out.print("while");
@@ -32,6 +43,9 @@ public class Loop {
 		System.out.println("end;");
 	}
 	
+	/**
+	 * Executes a Loop object.
+	 */
 	public void execute(){
 		while(cond.evalCondition()){
 			ss.execute();

@@ -1,5 +1,11 @@
 package coreinterpreter;
 
+/**
+ * The Declaration object is a list of Identifiers to be used for the program.
+ * @author Matthew Cramblett
+ *
+ */
+
 public class Declaration {
 	//private members
 	private IdList il;
@@ -10,6 +16,9 @@ public class Declaration {
 	}
 	
 	//public methods
+	/**
+	 * Parses a Declaration.
+	 */
 	public void parse(){
 		TokenizerSingleton.checkAndSkip(4, "int");
 		if(TokenizerSingleton.Instance().getToken() != 32){
@@ -22,6 +31,10 @@ public class Declaration {
 		}
 	}
 	
+	/**
+	 * Prints a Declaration object.
+	 * @param numSpaces amount of indent
+	 */
 	public void print(int numSpaces){
 		PrintHelp.printSpaces(numSpaces);
 		System.out.print("int ");

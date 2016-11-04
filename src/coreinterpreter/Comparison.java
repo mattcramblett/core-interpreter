@@ -1,5 +1,11 @@
 package coreinterpreter;
 
+/**
+ * The comparison class compares two operands.
+ * 
+ * @author Matthew Cramblett
+ *
+ */
 public class Comparison {
 	//private members
 	private Operand o1;
@@ -17,6 +23,9 @@ public class Comparison {
 	}
 	
 	//public methods
+	/**
+	 * Parses a comparison object.
+	 */
 	public void parse(){
 		TokenizerSingleton.checkAndSkip(20, "("); //always begins with (
 		o1 = new Operand();
@@ -31,7 +40,9 @@ public class Comparison {
 		o2.parse();
 		TokenizerSingleton.checkAndSkip(21, ")"); //always ends with )
 	}
-	
+	/**
+	 * Prints a Comparison object.
+	 */
 	public void print(){
 		System.out.print("(");
 		o1.print();
@@ -55,7 +66,10 @@ public class Comparison {
 		o2.print();
 		System.out.print(")");
 	}
-	
+	/**
+	 * Evaluates a Comparison object.
+	 * @return the resulting value of the condition.
+	 */
 	public boolean evalComparison(){
 		boolean result = false;
 		int op = operator.intValue();

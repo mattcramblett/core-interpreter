@@ -2,7 +2,8 @@ package coreinterpreter;
 import java.io.IOException;
 
 /*
- * Tokenizer Singleton class to ensure only one instance of the Tokenizer for parsing
+ * Tokenizer Singleton class to ensure only one instance of the Tokenizer for parsing.
+ * NOTE: this class is to be used throughout parsing.
  */
 public class TokenizerSingleton {
 	//private members

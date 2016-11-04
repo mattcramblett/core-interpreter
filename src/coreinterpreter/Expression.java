@@ -1,5 +1,10 @@
 package coreinterpreter;
-
+/**
+ * The Expression class is a factor, or addition/subtraction between
+ * a Factor and another Expression.
+ * @author Matthew Cramblett
+ *
+ */
 public class Expression {
 	//private members
 	private Factor f;
@@ -8,7 +13,7 @@ public class Expression {
 	/**
 	 * 'kind' is the type of expression.
 	 * 1 - a factor only
-	 * 2 - addition: <fac>-<exp>
+	 * 2 - addition: <fac>+<exp>
 	 * 3 - subtraction: <fac>-<exp>
 	 */
 	private int kind;
@@ -19,6 +24,9 @@ public class Expression {
 	}
 	
 	//public methods
+	/**
+	 * Parses an Expression object.
+	 */
 	public void parse(){
 		f = new Factor();
 		f.parse();
@@ -36,6 +44,9 @@ public class Expression {
 		}
 	}
 	
+	/**
+	 * Prints an Expression object.
+	 */
 	public void print(){
 		if(kind == 1){
 			f.print();
@@ -53,6 +64,10 @@ public class Expression {
 		}
 	}
 	
+	/**
+	 * Evaluates an expression object.
+	 * @return the resulting integer value of the Expression
+	 */
 	public int evalExpression(){
 		int result = 0;
 		if(kind == 1){

@@ -1,5 +1,9 @@
 package coreinterpreter;
-
+/**
+ * The StatementSequence class is a recursviely defined chain of Statement objects.
+ * @author Matthew Cramblett
+ *
+ */
 public class StatementSequence {
 	//private members
 	private Statement s;
@@ -11,6 +15,9 @@ public class StatementSequence {
 	}
 	
 	//public methods
+	/**
+	 * Parses a StatementSequence object.
+	 */
 	public void parse(){
 		s = new Statement();
 		s.parse();
@@ -21,6 +28,10 @@ public class StatementSequence {
 		}
 	}
 	
+	/**
+	 * Prints a StatementSequence object.
+	 * @param numSpaces the amount of indent
+	 */
 	public void print(int numSpaces){
 		s.print(numSpaces + PrintHelp.INDENT);
 		if(ss != null){
@@ -28,6 +39,9 @@ public class StatementSequence {
 		}
 	}
 
+	/**
+	 * Executes a StatementSequence object.
+	 */
 	public void execute(){
 		s.execute();
 		if(ss != null){

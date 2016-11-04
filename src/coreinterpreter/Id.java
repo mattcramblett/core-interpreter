@@ -1,7 +1,11 @@
 package coreinterpreter;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * The Id class reprents a variable in Core
+ * @author Matthew Cramblett
+ *
+ */
 public class Id {
 	//private members:
 	/**
@@ -21,6 +25,12 @@ public class Id {
 	}
 	
 	//public methods:
+	/**
+	 * Parses an Id that hasn't been declared yet.
+	 * @return an instance of the Id object for recursively printing and evaluating.
+	 * The value of this returned Id doesn't matter - its name will be used to look up
+	 * from {@code IdMap} upon execution.
+	 */
 	public static Id parseNewId(){
 		if(IdMap == null){
 			IdMap = new HashMap<String, Id>();
@@ -72,7 +82,7 @@ public class Id {
 	}
 	
 	/**
-	 *  Sets the value of an existing identifier
+	 * Sets the value of an existing identifier
 	 * @param idName the name of the Id to update - must be declared
 	 * @param value the value to give the Id
 	 */

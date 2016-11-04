@@ -1,5 +1,10 @@
 package coreinterpreter;
-
+/**
+ * The condition class is either just a comparison in parentheses,
+ * a negated condition, or an && or || between two conditions.
+ * @author Matthew Cramblett
+ *
+ */
 public class Condition {
 	//private members
 	private Comparison comp;
@@ -22,6 +27,9 @@ public class Condition {
 	}
 	
 	//public methods
+	/**
+	 * Parses a Condition object.
+	 */
 	public void parse(){
 		if(TokenizerSingleton.Instance().getToken() == 20){ //open parentheses means comparison
 			comp = new Comparison();
@@ -52,7 +60,9 @@ public class Condition {
 			TokenizerSingleton.checkAndSkip(17, "]");
 		}
 	}
-	
+	/**
+	 * Prints a Condition object.
+	 */
 	public void print(){
 		if(compState == null && isAnd == null && comp != null){ //means that this <cond> is a lone <comp> 
 			comp.print();
@@ -76,7 +86,10 @@ public class Condition {
 			System.exit(1);
 		}
 	}
-	
+	/**
+	 * Evaluates a Condition object.
+	 * @return the resulting value of the Condition.
+	 */
 	public boolean evalCondition(){
 		boolean result = false;
 		if(compState == null && isAnd == null && comp != null){ //means that this <cond> is a lone <comp> 

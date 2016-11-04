@@ -1,5 +1,10 @@
 package coreinterpreter;
-
+/**
+ * The operand class represents either an Integer value, 
+ * an Id or an Expression.
+ * @author Matthew Cramblett
+ *
+ */
 public class Operand {
 	//private members
 	private Integer i;
@@ -12,6 +17,9 @@ public class Operand {
 	}
 	
 	//public methods
+	/**
+	 * Parses an Operand object.
+	 */
 	public void parse(){
 		if(TokenizerSingleton.Instance().getToken() == 31){ //integer
 			i = new Integer(TokenizerSingleton.Instance().intVal());
@@ -27,6 +35,9 @@ public class Operand {
 		}
 	}
 	
+	/**
+	 * Prints an Operand object.
+	 */
 	public void print(){
 		if(i != null){
 			System.out.print(i.toString());
@@ -39,6 +50,10 @@ public class Operand {
 		}
 	}
 	
+	/**
+	 * Evaluates an Operand object.
+	 * @return the resulting integer value of the Operand
+	 */
 	public int evalOperand(){
 		int result = 0;
 		if(i != null){

@@ -1,5 +1,11 @@
 package coreinterpreter;
 
+/**
+ * The Assign class gives an ID a value, given an expression.
+ * 
+ * @author Matthew Cramblett
+ *
+ */
 public class Assign {
 	//private members
 	private Id id;
@@ -11,6 +17,9 @@ public class Assign {
 	}
 	
 	//public methods
+	/**
+	 * Parses an Assign object.
+	 */
 	public void parse(){
 		//assume next token is an Id because Statement checks for this
 		id = Id.parseExistingId(true);
@@ -20,7 +29,10 @@ public class Assign {
 		exp.parse();
 		TokenizerSingleton.checkAndSkip(12, ";");
 	}
-	
+	/**
+	 * Prints an Assign object.
+	 * @param numSpaces amount of indent
+	 */
 	public void print(int numSpaces){
 		PrintHelp.printSpaces(numSpaces);
 		System.out.print(id.name + " = ");
@@ -28,6 +40,9 @@ public class Assign {
 		System.out.print(";\n");
 	}
 	
+	/**
+	 * Executes an Assign statement.
+	 */
 	public void execute(){
 		Id.setIdValue(id.name, exp.evalExpression());
 	}

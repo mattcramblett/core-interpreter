@@ -1,5 +1,9 @@
 package coreinterpreter;
-
+/**
+ * The If class represents an If-Then or If-Then-Else statement in Core.
+ * @author Matthew Cramblett
+ *
+ */
 public class If {
 	//private members
 	private Condition cond;
@@ -13,6 +17,9 @@ public class If {
 	}
 	
 	//public methods
+	/**
+	 * Parses an If object.
+	 */
 	public void parse(){
 		TokenizerSingleton.checkAndSkip(5, "if");
 		cond = new Condition();
@@ -29,6 +36,10 @@ public class If {
 		TokenizerSingleton.checkAndSkip(12, ";");
 	}
 	
+	/**
+	 * Prints an If object.
+	 * @param numSpaces the amount of indent
+	 */
 	public void print(int numSpaces){
 		PrintHelp.printSpaces(numSpaces);
 		System.out.print("if");
@@ -46,6 +57,9 @@ public class If {
 		
 	}
 	
+	/**
+	 * Executes an If object.
+	 */
 	public void execute(){
 		boolean c = cond.evalCondition();
 		if(c){

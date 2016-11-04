@@ -1,5 +1,4 @@
 package coreinterpreter;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -9,6 +8,9 @@ import java.util.Scanner;
  * This is the entry point for the core interpreter.
  * The first command line argument is the CORE program
  * The second command line argument is the input data
+ * 
+ * It will setup/open the data file, initialize the Tokenizer,
+ * then create, parse, print, and execute the Program.
  * 
  * @author Matthew Cramblett
  *
@@ -36,7 +38,7 @@ public class CoreInterpreterBootstrap {
 			Program p = new Program();
 			p.parse();
 			p.print();
-			System.out.println("--PROGRAM OUTPUT:--");
+			System.out.println("---PROGRAM OUTPUT---");
 			p.execute();
 			
 		} catch (FileNotFoundException e) {

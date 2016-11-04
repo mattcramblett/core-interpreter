@@ -1,5 +1,10 @@
 package coreinterpreter;
-
+/**
+ * The Program class represents the entire Core program and is the first
+ * production in the Core BNF.
+ * @author Matthew Cramblett
+ *
+ */
 public class Program {
     //private members
 	private DeclarationSequence ds;
@@ -11,6 +16,9 @@ public class Program {
  	}
  	
     //public methods
+ 	/**
+ 	 * Parses a Program object.
+ 	 */
  	public void parse(){
  		TokenizerSingleton.checkAndSkip(1, "program");
  		
@@ -33,6 +41,9 @@ public class Program {
  		TokenizerSingleton.checkAndSkip(3, "end");
  	}
  	
+ 	/**
+ 	 * Prints the Program object.
+ 	 */
  	public void print(){
  		System.out.println("program");
  		if(ds != null){
@@ -45,6 +56,9 @@ public class Program {
  		System.out.print("end\n\n");
  	}
  	
+ 	/**
+ 	 * Executes the Program object.
+ 	 */
  	public void execute(){
  		if(ss != null){
  			ss.execute();

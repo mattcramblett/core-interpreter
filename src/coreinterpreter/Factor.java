@@ -1,5 +1,9 @@
 package coreinterpreter;
-
+/**
+ * The Factor class is either an operand or an Operand times another Factor.
+ * @author Matthew Cramblett
+ *
+ */
 public class Factor {
 	//private members
 	private Operand op;
@@ -11,6 +15,9 @@ public class Factor {
 	}
 	
 	//public methods
+	/**
+	 * Parses a Factor object.
+	 */
 	public void parse(){
 		op = new Operand();
 		op.parse();
@@ -21,6 +28,9 @@ public class Factor {
 		}
 	}
 	
+	/**
+	 * Prints a Factor object.
+	 */
 	public void print(){
 		op.print();
 		if(f != null){
@@ -29,6 +39,10 @@ public class Factor {
 		}
 	}
 
+	/**
+	 * Evaluates a Factor object.
+	 * @return the resulting integer value of the Factor
+	 */
 	public int evalFactor(){
 		int result = 0;
 		int operand = op.evalOperand();

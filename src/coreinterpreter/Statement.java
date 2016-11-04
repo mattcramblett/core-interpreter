@@ -1,5 +1,10 @@
 package coreinterpreter;
-
+/**
+ * The Statement class represents either an Assign, an If,
+ * a Loop, an In, or an Out in Core. 
+ * @author Matthew Cramblett
+ *
+ */
 public class Statement {
 	//private members
 	//assign, if, loop, in, out
@@ -15,6 +20,9 @@ public class Statement {
 	}
 	
 	//public methods
+	/**
+	 * Parses a Statement object.
+	 */
 	public void parse(){
 		//current token to decide which parse to call:
 		int token = TokenizerSingleton.Instance().getToken();
@@ -39,6 +47,10 @@ public class Statement {
 		}
 	}
 	
+	/**
+	 * Prints a Statement object.
+	 * @param numSpaces the amount of indent
+	 */
 	public void print(int numSpaces){
 		if(a != null){
 			a.print(numSpaces);
@@ -56,6 +68,9 @@ public class Statement {
 		}
 	}
 	
+	/**
+	 * Executes a Statement object.
+	 */
 	public void execute(){
 		if(a != null){
 			a.execute();
