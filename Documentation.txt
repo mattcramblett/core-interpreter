@@ -1,0 +1,74 @@
+DESIGN OF THE CORE INTERPRETER:
+	-This interpreter was implemented with recursive descent parsing based on an object-
+	oriented approach. It was built based upon the BNF for the Core Language. 
+	
+	-The tokenizer first separates the Core program into a stream of tokens. The 
+	TokenizerSingleton class uses the 'Lazy Initialization' approach to ensure only one
+	instance of the tokenizer is used for parsing. The data file is also opened at this time.
+	From here, the three main phases are parsing, printing, then executing.
+	
+	-Parsing begins at the highest level with building the Program object, which contains a 
+	DeclarationSequequence and StatementSequence object, and is from there descends into resursive
+	parsing. Most classes have a few private instance variables that are objects which correspond
+	to other of the various productions from the BNF and can be initialized based upon need.
+	
+	-Sometimes an uninitialized instance variable was useful in other methods after parsing to
+	determine which alternative for that production was being used or if recursing further 
+	was required. For example: if an IdList has a null Id object, then that is the end of the list
+	so no more calls to the Id class are required. 
+	
+	-Identifiers are implemented through a static Java Map, which is also ensured to only
+	have one instance through lazy initialization (similar to the tokenizer). Values were not
+	actually assigned to Ids until execution, in order to check for errors and avoid unnecessary
+	steps to assigning values in parsing or printing. There are also checks in place for undeclared
+	or uninitialized identifiers.
+	
+HOW TO USE THE INTERPRETER:
+	-Run the interpreter from the class 'CoreInterpreterBootstrap.java'. This is the entry point.
+	
+	-Provide two command line arguments: first is the Core program to interpret, and the second
+	is the corresponding data file containing integers, delimited by whitespace.
+	
+	-Reference the code in 'CoreInterpreterBootstrap.java'
+		-Provide a public Scanner object called 'reader':
+			public static Scanner reader;
+			
+		-Using try/catch/finally statements, open the file and initializer 'reader'.
+		
+		-Create a new Program object:
+			Program p = new Program();
+			
+		-Then parse, print, execute:
+			p.parse();
+			p.print();
+			System.out.println("---PROGRAM OUTPUT---");
+			p.execute();
+			
+		-(Be sure to handle file IO exceptions)
+		
+TESTING:
+	The most practical way to test this interpreter was through creating test programs and
+	test data files and then running the interpreter to verify output (sample tests included -
+	see README.txt). The possible errors to catch were tested with erroneous input:
+		- Illegal token(s) in the input program file.
+		- All tokens are legal but the program violates one or more of the BNF requirements of 
+			the Core grammar.
+		- The input program satisfies all the BNF requirements but the program violates one of 
+		the context-sensitive conditions; there are two such conditions:
+					a. the same identifier declared more than once;
+					b. undeclared identifier being used in the statement sequence portion.
+		-All the syntax requirements, both context-free and context-sensitive are satisfied but 
+		there is a run-time error. The possible run-time errors are:
+					a. attempt to use the value of an uninitialized identifier;
+					b. attempt to read data when the input data file is empty.
+	Aside from error catching, the interpreter was tested through checking that each of the productions
+	in the BNF grammar execute properly, and various combinations/nesting of the productions.
+	Identifiers were also tested more specifically to ensure they handle their values properly in 
+	certain cases, such as an identifier having its value changed by reading the data file upon each
+	execution of a loop. 
+	After countless iterations of creating and testing Core programs, I have not found
+	any further bugs in the program.
+	
+	
+	
+	

@@ -40,7 +40,9 @@ FILES:
 			StatementSequence.java
 				-The StatementSequence class, corresponds to the <stmt seq> production in the BNF for Core.
 			Tokenizer.java
+				-The Tokenizer class, responsible for separating Core code into tokens for parsing.
 			TokenizerSingleton.java
+				-This class is used for parsing to ensure only one instance of the Tokenizer is returned.
 			
 		>test
 			>testData
