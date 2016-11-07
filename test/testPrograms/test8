@@ -1,0 +1,13 @@
+program   int A, B, C, D
+						, 			E,  	F,  G, H;   begin
+  			read A, B, C;	read D, E;	read F, G, H;
+  			
+  			write A, B, C;
+  			write D, E, F;
+  			
+  			
+  			while (A >= 0) loop write A; A= A-1;
+  			end;
+  			
+  			while [(B <= 12) || (A > 0)] loop write B; B= B+1; end;
+  end

@@ -78,7 +78,7 @@ public class Condition {
 		}else if(isAnd == false){ // ||
 			System.out.print("[");
 			c1.print();
-			System.out.println(" || ");
+			System.out.print(" || ");
 			c2.print();
 			System.out.print("]");
 		}else{

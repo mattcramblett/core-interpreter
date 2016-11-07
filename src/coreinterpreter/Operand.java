@@ -26,7 +26,7 @@ public class Operand {
 			TokenizerSingleton.checkAndSkip(31, "-integer value-");
 		}else if(TokenizerSingleton.Instance().getToken() == 32){ //identifier
 			id = Id.parseExistingId(false); //false because we're not assigning value to the Id
-			TokenizerSingleton.checkAndSkip(32, id.name);
+			TokenizerSingleton.checkAndSkip(32, "an identifier");
 		}else{
 			TokenizerSingleton.checkAndSkip(20, "("); //only other case is open parentheses with exp
 			exp = new Expression();

@@ -47,7 +47,6 @@ public class If {
 		System.out.print(" then\n");
 		ss1.print(numSpaces + PrintHelp.INDENT);
 		if(ss2 != null){
-			System.out.println();
 			PrintHelp.printSpaces(numSpaces);
 			System.out.print("else\n");
 			ss2.print(numSpaces + PrintHelp.INDENT);

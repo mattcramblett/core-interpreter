@@ -48,6 +48,16 @@ public class Statement {
 	}
 	
 	/**
+	 * Returns true if the token is a valid first token in a Statement.
+	 * @param token the token to check
+	 * @return true iff {@code token} is a possible first token in a Statement
+	 */
+	public static boolean isStatementToken(int token){
+		return token == 32 || token == 5 || token == 8
+				|| token == 10 || token == 11;
+	}
+	
+	/**
 	 * Prints a Statement object.
 	 * @param numSpaces the amount of indent
 	 */

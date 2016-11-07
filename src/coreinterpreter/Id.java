@@ -38,6 +38,13 @@ public class Id {
 		//get the name of the id and add it to the list of all Ids:
 		Id newId = new Id();
 		newId.name = TokenizerSingleton.Instance().idName();
+		
+		//Check to see if Id has already been declared:
+		if(IdMap.containsKey(newId.name)){
+			System.out.println("ERROR - Identifier \'" + newId.name + "\' declared more than once.");
+			System.exit(1);
+		}
+		
 		newId.declared = true;
 		IdMap.put(newId.name, newId);
 		//return the object so the calling function can print with it
@@ -64,7 +71,8 @@ public class Id {
 				IdMap.get(idName).initialized = true;
 			}else if(!IdMap.get(idName).initialized){
 					System.out.println("ERROR - Id " + idName + " couldn't be "
-							+ "printed because it's not initialized.");
+							+ "used because it's not initialized.");
+					System.exit(1);
 			}
 		}
 		return IdMap.get(idName);

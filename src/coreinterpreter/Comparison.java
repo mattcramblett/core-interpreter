@@ -35,7 +35,7 @@ public class Comparison {
 		if(operator < 25 || operator > 30){
 			System.out.println("ERROR - illegal operator. Found token " + operator);
 		}
-		TokenizerSingleton.Instance().skipToken();
+		TokenizerSingleton.Instance().skipToken(); //skip the operator token
 		o2 = new Operand();
 		o2.parse();
 		TokenizerSingleton.checkAndSkip(21, ")"); //always ends with )

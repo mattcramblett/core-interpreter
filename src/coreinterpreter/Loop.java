@@ -35,7 +35,7 @@ public class Loop {
 	 */
 	public void print(int numSpaces){
 		PrintHelp.printSpaces(numSpaces);
-		System.out.print("while");
+		System.out.print("while ");
 		cond.print();
 		System.out.print(" loop\n");
 		ss.print(numSpaces + PrintHelp.INDENT);

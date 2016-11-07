@@ -1,0 +1,9 @@
+program
+ int A; 
+  begin
+  read A;
+ 	while ( A != 24 ) loop
+ 		write A;
+ 		read A;
+ 	end;
+  end

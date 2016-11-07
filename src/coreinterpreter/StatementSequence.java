@@ -21,8 +21,7 @@ public class StatementSequence {
 	public void parse(){
 		s = new Statement();
 		s.parse();
-		if(TokenizerSingleton.Instance().getToken() != 33
-				&& TokenizerSingleton.Instance().getToken() != 3){
+		if(Statement.isStatementToken(TokenizerSingleton.Instance().getToken())){
 			ss = new StatementSequence();
 			ss.parse();
 		}

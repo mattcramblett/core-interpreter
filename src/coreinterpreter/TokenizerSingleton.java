@@ -41,7 +41,7 @@ public class TokenizerSingleton {
 	 */
 	public static void checkAndSkip(int tokenNum, String tokenName){
  		if(TokenizerSingleton.Instance().getToken() != tokenNum){
- 			System.out.println("ERROR - Expected token '" + tokenName + "'");
+ 			System.out.println("ERROR - Expected token \'" + tokenName + "\'");
  			System.exit(1);
  		}else{
  			//skip token if there's no error

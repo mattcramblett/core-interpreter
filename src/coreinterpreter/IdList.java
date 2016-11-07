@@ -97,12 +97,15 @@ public class IdList {
 	 * Reads in an IdList upon execution from the file scanner
 	 * set up by the CoreInterpreterBootstrap class. The Id values 
 	 * are updated in {@code IdMap}
+	 * 
+	 * @requires {@code CoreInterpreterBootstrap.reader.hasNextInt()}
+	 * 
 	 */
 	public void readIdList(){
 		if(CoreInterpreterBootstrap.reader.hasNextInt()){
 			Id.setIdValue(id.name, CoreInterpreterBootstrap.reader.nextInt());
 		}else{
-			System.out.println("ERROR reading integer data from file.");
+			System.out.println("ERROR reading integer data from file for Id \'" + id.name + "\'");
 			System.exit(1);
 		}
 		if(il != null){
@@ -117,7 +120,6 @@ public class IdList {
 	public void writeIdList(){
 		System.out.print(id.name + " = " + Id.getIdValue(id.name) + "\n");
 		if(il != null){
-			System.out.print(", ");
 			il.writeIdList();
 		}
 	}

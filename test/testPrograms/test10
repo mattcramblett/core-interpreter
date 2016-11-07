@@ -1,0 +1,12 @@
+program
+ int A, B, C, D, E; 
+  begin
+  read A, B, C, D;
+  E = A * B;
+  write E;
+  write E;
+  E = A * B * C;
+  write E;
+  E = A * B * C * D;
+  write E;
+  end

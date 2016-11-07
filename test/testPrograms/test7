@@ -1,0 +1,21 @@
+program   int XX, YY, ZZ;
+  begin
+  			read XX, YY, ZZ;
+  			
+  			if [(( XX + 1 ) > 1000) && ((YY - 1) < 100)] then
+  			   write XX, YY;
+  			else
+  				write ZZ;
+  			end;
+  			
+  			
+  			
+  			if [(( XX + 1 ) < 1000) && ((YY - 1) > 100)] then
+  			   write XX, YY;
+  			else
+  				write ZZ;
+  			end;
+  
+  
+  
+  end
