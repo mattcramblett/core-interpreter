@@ -64,6 +64,8 @@ FILES:
 COMPILATION / EXECUTION:
 	-This program was written in Eclipse using JavaSE 1.8. 
 		Compile and run it using the same.
+		Follow Eclipse importing instructions here if needed:
+			http://agile.csc.ncsu.edu/SEMaterials/tutorials/import_export/
 	-Requires two command line arguments: the name of the file of the Core program
 		then the name of the data file for that program. Command line arguments are
 		set with: run>run configurations>arguments> click apply.
